@@ -5,8 +5,13 @@ const router = createRouter({
   routes: [
     {
       path: '/board/reg',
-      name: 'postCreate',
+      name: 'boardRegister',
       component: () => import('../components/board/BoardRegister.vue'),
+    },
+    {
+      path: '/board',
+      name: 'boardList',
+      component: () => import('../components/board/BoardList.vue'),
     },
   ],
 })

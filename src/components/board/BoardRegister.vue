@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import api from '../../plugins/axiosinterceptor.js';
 
 const title = ref('');
 const contents = ref('');
+const router = useRouter();
 
 const submitPost = async () => {
     try {
@@ -13,6 +15,8 @@ const submitPost = async () => {
         });
 
         alert(response.data);
+        router.push('/board'); // 목록으로 이동
+
     } catch (error) {
         console.error("에러 발생:", error);
     }
@@ -20,8 +24,18 @@ const submitPost = async () => {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex justify-center">
-        <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+    <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+        <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative">
+
+            <button @click="$router.go(-1)"
+                class="absolute left-6 top-8 text-gray-400 hover:text-gray-800 transition duration-200 focus:outline-none cursor-pointer"
+                title="뒤로 가기">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </button>
 
             <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
                 게시글 작성
