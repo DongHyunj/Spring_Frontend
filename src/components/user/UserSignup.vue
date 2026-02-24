@@ -25,7 +25,7 @@ const submitSignup = async () => {
 
         alert("회원가입이 완료되었습니다! 환영합니다. 🎉");
 
-        router.push('/board');
+        router.push('/user/login');
 
     } catch (error) {
         console.error("회원가입 에러:", error);
