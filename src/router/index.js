@@ -33,6 +33,11 @@ const router = createRouter({
       name: 'userSignup',
       component: () => import('../components/user/UserSignup.vue'),
     },
+    {
+      path: '/verify',
+      name: 'emailVerify',
+      component: () => import('../components/user/EmailVerify.vue'),
+    },
   ],
 })
 
