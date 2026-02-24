@@ -6,10 +6,8 @@ import api from '../../plugins/axiosinterceptor.js';
 const route = useRoute();
 const router = useRouter();
 
-// 주소창 글 번호 가져오기
 const postId = route.params.idx;
 
-// 게시글 담을 객체
 const board = ref({});
 
 const fetchBoardDetail = async () => {
@@ -20,6 +18,20 @@ const fetchBoardDetail = async () => {
         console.error("게시글 상세 조회 실패:", error);
         alert("게시글을 불러오는데 실패했습니다.");
         router.push('/board');
+    }
+};
+
+const deletePost = async () => {
+    if (confirm("정말 이 게시글을 삭제하시겠습니까?")) {
+        try {
+            await api.delete(`/board/list/${postId}/delete`);
+            alert("게시글이 삭제되었습니다.");
+
+            router.push("/board");
+        } catch (error) {
+            console.log("삭제 실패:", error);
+            alert("삭제에 실패했습니다.");
+        }
     }
 };
 
@@ -59,6 +71,10 @@ onMounted(() => {
                 <button @click="$router.push(`/board/list/${postId}/update`)"
                     class="w-1/2 sm:w-1/3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     수정하기
+                </button>
+                <button @click="deletePost"
+                    class="w-1/3 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                    삭제하기
                 </button>
             </div>
 
