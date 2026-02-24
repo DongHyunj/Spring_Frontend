@@ -55,10 +55,10 @@ onMounted(() => {
                 {{ board.contents }}
             </div>
 
-            <div class="pt-8 mt-8 border-t border-gray-100 flex justify-center">
-                <button @click="$router.push('/board')"
-                    class="w-full sm:w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    목록으로 돌아가기
+            <div class="pt-8 mt-8 border-t border-gray-100 flex justify-center space-x-4">
+                <button @click="$router.push(`/board/list/${postId}/update`)"
+                    class="w-1/2 sm:w-1/3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    수정하기
                 </button>
             </div>
 
