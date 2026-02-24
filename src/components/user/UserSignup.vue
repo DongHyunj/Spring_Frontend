@@ -38,7 +38,7 @@ const submitSignup = async () => {
     <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
         <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative">
 
-            <button @click="$router.push('/board')"
+            <button @click="$router.push('/user/login')"
                 class="absolute left-6 top-8 text-gray-400 hover:text-gray-800 transition duration-200 focus:outline-none cursor-pointer"
                 title="메인으로 가기">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
