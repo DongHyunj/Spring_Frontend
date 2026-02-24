@@ -24,6 +24,11 @@ const router = createRouter({
       component: () => import('../components/board/BoardUpdate.vue'),
     },
     {
+      path: '/user/login',
+      name: 'userLogin',
+      component: () => import('../components/user/UserLogin.vue'),
+    },
+    {
       path: '/user/signup',
       name: 'userSignup',
       component: () => import('../components/user/UserSignup.vue'),
