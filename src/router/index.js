@@ -4,22 +4,22 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/board/reg',
+      path: '/boards/reg',
       name: 'boardRegister',
       component: () => import('../components/board/BoardRegister.vue'),
     },
     {
-      path: '/board',
+      path: '/boards',
       name: 'boardList',
       component: () => import('../components/board/BoardList.vue'),
     },
     {
-      path: '/board/list/:idx',
+      path: '/boards/list/:idx',
       name: 'boardDetail',
       component: () => import('../components/board/BoardDetail.vue'),
     },
     {
-      path: '/board/list/:idx/update',
+      path: '/boards/edit/:idx',
       name: 'boardUpdate',
       component: () => import('../components/board/BoardUpdate.vue'),
     },

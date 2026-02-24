@@ -9,13 +9,13 @@ const router = useRouter();
 
 const submitPost = async () => {
     try {
-        const response = await api.post('/board/reg', {
+        const response = await api.post('/boards/reg', {
             title: title.value,
             contents: contents.value
         });
 
         alert(response.data);
-        router.push('/board'); // 목록으로 이동
+        router.push('/boards'); // 목록으로 이동
 
     } catch (error) {
         console.error("에러 발생:", error);

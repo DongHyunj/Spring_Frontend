@@ -12,7 +12,7 @@ const contents = ref('');
 
 const fetchPost = async () => {
     try {
-        const response = await api.get(`/board/list/${postId}`);
+        const response = await api.get(`/boards/list/${postId}`);
         title.value = response.data.title;
         contents.value = response.data.contents;
     } catch (error) {
@@ -24,13 +24,13 @@ const fetchPost = async () => {
 
 const updatePost = async () => {
     try {
-        const response = await api.patch(`/board/list/${postId}/update`, {
+        const response = await api.patch(`/boards/edit/${postId}`, {
             title: title.value,
             contents: contents.value
         });
 
         alert(response.data);
-        router.push(`/board/list/${postId}`);
+        router.push(`/boards/list/${postId}`);
 
     } catch (error) {
         console.error("수정 실패:", error);

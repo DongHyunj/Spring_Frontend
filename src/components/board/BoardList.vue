@@ -8,7 +8,7 @@ const router = useRouter();
 
 const fetchBoardList = async () => {
     try {
-        const response = await api.get('/board/list');
+        const response = await api.get('/boards/list');
         boardList.value = response.data;
     } catch (error) {
         console.error("게시글 목록 조회 실패:", error);
@@ -16,7 +16,7 @@ const fetchBoardList = async () => {
 };
 
 const goToDetail = (idx) => {
-    router.push(`/board/list/${idx}`);
+    router.push(`/boards/list/${idx}`);
 }
 
 onMounted(() => {
@@ -33,7 +33,7 @@ onMounted(() => {
                     게시글 목록
                 </h2>
 
-                <button @click="$router.push('/board/reg')"
+                <button @click="$router.push('/boards/reg')"
                     class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-5 rounded-lg transition duration-200 shadow-sm flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">

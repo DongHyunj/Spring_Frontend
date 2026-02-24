@@ -22,7 +22,7 @@ const submitLogin = async () => {
         console.log("로그인 성공:", response.data);
         alert("로그인에 성공했습니다! 환영합니다.");
 
-        router.push('/board');
+        router.push('/boards');
 
     } catch (error) {
         console.error("로그인 실패:", error);

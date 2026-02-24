@@ -12,22 +12,22 @@ const board = ref({});
 
 const fetchBoardDetail = async () => {
     try {
-        const response = await api.get(`/board/list/${postId}`);
+        const response = await api.get(`/boards/list/${postId}`);
         board.value = response.data;
     } catch (error) {
         console.error("게시글 상세 조회 실패:", error);
         alert("게시글을 불러오는데 실패했습니다.");
-        router.push('/board');
+        router.push('/boards');
     }
 };
 
 const deletePost = async () => {
     if (confirm("정말 이 게시글을 삭제하시겠습니까?")) {
         try {
-            await api.delete(`/board/list/${postId}/delete`);
+            await api.delete(`/boards/delete/${postId}`);
             alert("게시글이 삭제되었습니다.");
 
-            router.push("/board");
+            router.push("/boards");
         } catch (error) {
             console.log("삭제 실패:", error);
             alert("삭제에 실패했습니다.");
@@ -44,7 +44,7 @@ onMounted(() => {
     <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
         <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative">
 
-            <button @click="$router.push('/board')"
+            <button @click="$router.push('/boards')"
                 class="absolute left-6 top-8 text-gray-400 hover:text-gray-800 transition duration-200 focus:outline-none cursor-pointer"
                 title="목록으로 가기">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
@@ -68,7 +68,7 @@ onMounted(() => {
             </div>
 
             <div class="pt-8 mt-8 border-t border-gray-100 flex justify-center space-x-4">
-                <button @click="$router.push(`/board/list/${postId}/update`)"
+                <button @click="$router.push(`/boards/edit/${postId}`)"
                     class="w-1/2 sm:w-1/3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     수정하기
                 </button>
