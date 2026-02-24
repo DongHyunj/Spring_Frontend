@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'boardList',
       component: () => import('../components/board/BoardList.vue'),
     },
+    {
+      path: '/board/list/:idx',
+      name: 'boardDetail',
+      component: () => import('../components/board/BoardDetail.vue'),
+    },
   ],
 })
 
