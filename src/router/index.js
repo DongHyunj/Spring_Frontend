@@ -23,6 +23,11 @@ const router = createRouter({
       name: 'boardUpdate',
       component: () => import('../components/board/BoardUpdate.vue'),
     },
+    {
+      path: '/user/signup',
+      name: 'userSignup',
+      component: () => import('../components/user/UserSignup.vue'),
+    },
   ],
 })
 
